@@ -40,9 +40,15 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(title: Text(widget.title)),
       body: Center(
-        child: Text('Index $_selectedIndex: ${['Home', 'Calendar', 'Activities', 'Tracker', 'Available'][_selectedIndex]}'),
+        child: Text('Index $_selectedIndex: ${[
+          'Home',
+          'Calendar',
+          'Activities',
+          'Tracker',
+          'Available'
+        ][_selectedIndex]}'),
       ),
-      drawer: sidenav(
+      drawer: SideNav(
         selectedIndex: _selectedIndex,
         onItemTapped: _onItemTapped,
       ),
