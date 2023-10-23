@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'sidenav.dart';
 
 import 'main_app.dart';
 
@@ -59,10 +58,6 @@ class _MyHomePageState extends State<MyHomePage> {
           'Tracker',
           'Available'
         ][_selectedIndex]}'),
-      ),
-      drawer: SideNav(
-        selectedIndex: _selectedIndex,
-        onItemTapped: _onItemTapped,
       ),
     );
   }
