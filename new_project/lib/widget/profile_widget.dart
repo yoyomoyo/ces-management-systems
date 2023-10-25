@@ -8,6 +8,7 @@ class ProfileWidget extends StatelessWidget {
     Key? key,
     required this.imagePath,
     required this.onClicked,
+    required bool isEdit,
   }) : super(key: key);
 
   @override //profile picture

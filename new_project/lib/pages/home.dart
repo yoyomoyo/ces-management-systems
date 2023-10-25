@@ -63,21 +63,19 @@ class Home extends StatelessWidget {
         backgroundColor: Colors.white,
         gap: 10,
         tabs: [
-          GButton(icon: Icons.home, text: 'Home'),
-          GButton(icon: Icons.book, text: 'Activities'),
-          GButton(icon: Icons.check_circle, text: 'Available'),
-          GButton(icon: Icons.qr_code_rounded, text: 'QR CODE'),
-          GButton(icon: Icons.track_changes_rounded, text: 'Tracker'),
-          GButton(icon: Icons.notifications, text: 'Notifications'),
+          const GButton(icon: Icons.home, text: 'Home'),
+          const GButton(icon: Icons.book, text: 'Activities'),
+          const GButton(icon: Icons.check_circle, text: 'Available'),
+          const GButton(icon: Icons.qr_code_rounded, text: 'QR CODE'),
+          const GButton(icon: Icons.track_changes_rounded, text: 'Tracker'),
+          const GButton(icon: Icons.notifications, text: 'Notifications'),
           GButton(
               icon: Icons.person,
               text: 'Profile',
               onPressed: () {
                 //Navigator.pushNamed(context, 'profile');
-                Navigator.push(
-                    context,
-                    new MaterialPageRoute(
-                        builder: (context) => new ProfilePage()));
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => ProfilePage()));
               }),
         ],
       ),

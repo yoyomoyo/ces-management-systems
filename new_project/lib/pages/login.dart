@@ -79,6 +79,9 @@ class _LoginState extends State<Login> {
                 focusNode: _focusNodePassword,
                 obscureText: _obscurePassword,
                 keyboardType: TextInputType.visiblePassword,
+                textInputAction:
+                    TextInputAction.done, // Trigger login on "Done" button
+                onFieldSubmitted: (_) => _login(), // Handle Enter key press
                 decoration: InputDecoration(
                   labelText: "Password",
                   prefixIcon: const Icon(Icons.password_outlined),
@@ -119,21 +122,7 @@ class _LoginState extends State<Login> {
                         borderRadius: BorderRadius.circular(20),
                       ),
                     ),
-                    onPressed: () {
-                      if (_formKey.currentState?.validate() ?? false) {
-                        _boxLogin.put("loginStatus", true);
-                        _boxLogin.put("userName", _controllerUsername.text);
-
-                        Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) {
-                              return Home();
-                            },
-                          ),
-                        );
-                      }
-                    },
+                    onPressed: _login, // Trigger login on button press
                     child: const Text("Login"),
                   ),
                   Row(
@@ -164,6 +153,23 @@ class _LoginState extends State<Login> {
         ),
       ),
     );
+  }
+
+  // Function to trigger login action
+  void _login() {
+    if (_formKey.currentState?.validate() ?? false) {
+      _boxLogin.put("loginStatus", true);
+      _boxLogin.put("userName", _controllerUsername.text);
+
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (context) {
+            return Home();
+          },
+        ),
+      );
+    }
   }
 
   @override
