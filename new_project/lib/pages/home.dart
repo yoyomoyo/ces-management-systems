@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:new_project/pages/profile.dart';
 import 'login.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
@@ -58,29 +59,26 @@ class Home extends StatelessWidget {
           ],
         ),
       ),
-      bottomNavigationBar: const GNav(
+      bottomNavigationBar: GNav(
         backgroundColor: Colors.white,
         gap: 10,
         tabs: [
           GButton(icon: Icons.home, text: 'Home'),
           GButton(icon: Icons.book, text: 'Activities'),
+          GButton(icon: Icons.check_circle, text: 'Available'),
+          GButton(icon: Icons.qr_code_rounded, text: 'QR CODE'),
+          GButton(icon: Icons.track_changes_rounded, text: 'Tracker'),
+          GButton(icon: Icons.notifications, text: 'Notifications'),
           GButton(
-            icon: Icons.check_circle,
-            text: 'Available',
-          ),
-          GButton(
-            icon: Icons.qr_code_rounded,
-            text: 'QR CODE',
-          ),
-          GButton(
-            icon: Icons.track_changes_rounded,
-            text: 'Tracker',
-          ),
-          GButton(
-            icon: Icons.notifications,
-            text: 'Notifications',
-          ),
-          GButton(icon: Icons.person, text: 'Profile'),
+              icon: Icons.person,
+              text: 'Profile',
+              onPressed: () {
+                //Navigator.pushNamed(context, 'profile');
+                Navigator.push(
+                    context,
+                    new MaterialPageRoute(
+                        builder: (context) => new ProfilePage()));
+              }),
         ],
       ),
     );
